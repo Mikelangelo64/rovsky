@@ -1,0 +1,22 @@
+@import './viewport';
+@import './font-size.scss';
+
+:root {
+    @media (orientation: landscape) {
+      --wrap: 6.944vw;
+
+      @include viewport-desktop {
+        @media (min-width: 1440px) {
+          --wrap: calc((100vw - 1239px) / 2);
+        }
+      }
+
+      @include viewport-tablet-max {
+        --wrap: 4vw;
+      }
+    }
+
+    @media (orientation: portrait) {
+      --wrap: 11.733vw;
+    }
+}

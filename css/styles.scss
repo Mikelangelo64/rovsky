@@ -1,0 +1,137 @@
+@import './config/base.scss';
+
+body {
+    overflow: hidden;
+
+    font-family: $font-family;
+    font-weight: 400;
+    font-size: px-to-rem(16);
+    line-height: 130%;
+    
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-primary);
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+p {
+    margin: unset;
+}
+
+.wrapper {
+    display: flex;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    padding: 0 var(--wrap);
+
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+
+    @media (orientation: portrait) {
+        flex-direction: column;
+    }
+
+    > * + * {
+        @media (orientation: landscape) {
+            @include viewport-desktop {
+                margin-left: 5.844%;
+            }
+
+            @include viewport-tablet-max {
+                margin-left: 3%;
+            }
+        }
+        @media (orientation: portrait) {
+            margin-top: 18.851%;
+        }
+    }
+}
+
+.img-wrapper {
+    @media (orientation: landscape) {
+        max-width: 29.193%;
+    }
+
+    @media (orientation: portrait) {
+        max-width: 27.777%;
+
+        @media (max-height: 650px) {
+            max-width: 20.777%;
+        }
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+        // @media (orientation: landscape) {
+        // }
+
+        // @media (orientation: portrait) {
+        //     width: auto;
+        //     height: 100%;
+        // }
+
+        &.img-landscape {
+            @media (orientation: portrait) {
+                display: none;
+            }
+        }
+        &.img-portrait {
+            @media (orientation: landscape) {
+                display: none;
+            }
+        }
+    }
+}
+.main {
+    text-align: center;
+
+    > * + * {
+        @media (orientation: landscape) {
+            margin-top: px-to-rem(24);
+        }
+        @media (orientation: portrait) {
+            margin-top: px-to-rem(20.3);
+        }
+    }
+}
+
+.logo {
+    @media (orientation: landscape) {
+        max-width: px-to-rem(370);
+    }
+    @media (orientation: portrait) {
+        max-width: px-to-rem(287);
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.description {
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    font-weight: 400;
+    line-height: 130%;
+
+    @media (orientation: landscape) {
+        font-size: 16px;
+    }
+
+    @media (orientation: portrait) {
+        font-size: 14px;
+    }
+}

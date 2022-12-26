@@ -1,0 +1,15 @@
+$colors: (
+    'text-primary': #FAFAFA,
+    'bg-primary': #000000,
+);
+
+:root {
+    @each $key, $value in $colors {
+        --color-#{$key}: #{$value};
+    }
+}
+
+html {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+}
